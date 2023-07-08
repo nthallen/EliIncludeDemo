@@ -1,0 +1,3 @@
+BareWord: $[A-Za-z_%:][A-Za-z0-9_%:]* [mkidn]
+CString: C_STRING_LIT [c_mkstr]
+

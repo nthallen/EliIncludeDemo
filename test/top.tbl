@@ -1,0 +1,12 @@
+table1 {}
+
+Input "fileA.tbl";
+
+table2 {}
+
+Input "fileB.tbl";
+
+table3 {}
+
+{}
+

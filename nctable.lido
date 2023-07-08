@@ -1,0 +1,21 @@
+ATTR Sym : int;
+
+RULE : NamedTable ::= TableNameDef Table COMPUTE
+  message (NOTE, CatStrInd("Processing table ", TableNameDef.Sym), 0, COORDREF);
+END;
+
+RULE: TableNameDef ::= BareWord COMPUTE
+  TableNameDef.Sym = BareWord;
+END;
+
+%----------------------------------------------------------------
+% Input file processing
+%----------------------------------------------------------------
+ATTR InpFileEx: int;
+RULE: Input ::= 'Input' CString COMPUTE
+  .InpFileEx = NewInput (StringTable(CString)) BOTTOMUP;
+  IF (NOT (.InpFileEx),
+  message (ERROR, CatStrInd("can not open file ", CString),
+    0, COORDREF));
+END;
+
